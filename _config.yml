@@ -38,8 +38,8 @@ search: true
 author:
   name     : "c4e"
   avatar   : "/assets/images/perro.jpg"
-  bio      : "16 y/o CTF player"
-  location : "Stack / Chile"
+  bio      : "16 y/o CTF player<br>HTB BirdsArentReal"
+  location : "Chile"
   links	 :
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
@@ -47,6 +47,9 @@ author:
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/c4ebt"
+    - label: "HackTheBox"
+      icon: "fas fa-cube"
+      url: "https://www.hackthebox.eu/profile/107492"
  
 # Exclude from processing.
 # The following items will not be processed, by default.
