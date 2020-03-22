@@ -28,9 +28,11 @@ twitter_username: imc4e
 github_username:  c4ebt
 
 # Build settings
-theme: minimal-mistakes-jekyll
+# theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.19.1"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
 search: true
 
 author:
