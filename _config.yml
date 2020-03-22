@@ -50,7 +50,22 @@ author:
     - label: "HackTheBox"
       icon: "fas fa-cube"
       url: "https://www.hackthebox.eu/profile/107492"
- 
+
+timezone: "America/Santiago"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: true
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
