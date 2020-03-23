@@ -38,7 +38,7 @@ search: true
 author:
   name     : "c4e"
   avatar   : "/assets/images/perro.jpg"
-  bio      : "16 y/o CTF player<br>HTB BirdsArentReal"
+  bio      : "16 y/o CTF player<br>HTB BirdsArentReal<br><br>Discord: c4e#8859"
   location : "Chile"
   links	 :
     - label: "Twitter"
@@ -66,6 +66,11 @@ defaults:
       share: true
       related: true
 
+excerpt_separator: "[separator]: <> ()"
+
+collections:
+  downloads:
+    output: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
