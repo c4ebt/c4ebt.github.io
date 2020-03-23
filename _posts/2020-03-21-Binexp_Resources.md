@@ -6,7 +6,7 @@ tags: [binexp, buffer overflow, rop, ret2libc]
 image: "/assets/images/checksec.png"
 ---
 
-Most of the writeups I will post will not be entry-level PWNs - and some people have asked for them - , so here you have some resources to work your way up learning PWN.
+Most of the writeups I will post will not be entry-level PWNs - and some people have asked for them - so here you have some resources to work your way up learning PWN.
 
 [separator]: <> ()
 
