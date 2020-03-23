@@ -6,9 +6,12 @@ tags: [binexp, buffer overflow, rop, ret2libc]
 image: "/assets/images/checksec.png"
 ---
 
-Here you have some resources to work your way up learning PWN.
+Most of the writeups I will post will not be entry-level PWNs and some people have asked for them, so here you have some resources to work your way up learning PWN.
+
+[separator]: <> ()
 
 You shouldn't restrict yourself to this learning paths, these are just the resources I've used and simple recommendations.
+
 
 - [Introduction to the Buffer Overflow concept](https://youtu.be/1S0aBV-Waeo)
 - [Great serie explaining multiple types of Buffer Overflows and what happens under the hood](https://youtu.be/iyAyN3GFM7A)
