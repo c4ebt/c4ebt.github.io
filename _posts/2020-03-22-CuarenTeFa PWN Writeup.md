@@ -24,7 +24,7 @@ Descomprimimos el zip, cambiamos los archivos a modo ejecutable y estamos listos
 Vemos que tenemos un binario y una libc, asumimos que es la libc de la maquina remota que nos es entregada para poder conseguir direcciones y demás. Al correr el binario, este espera nuestro input y luego printea `Q4{CTF2020}!`, una distracción por parte del creador del desafío a una flag del estilo Q4{} usadas en un CTF pasado.
 Hacemos el comando `file` con el archivo para ver si se trata de un binario de 32 o 64 bits:
 
-![](http://c4ebt.github.io/assets/images/checksec.png)
+![](http://c4ebt.github.io/assets/images/file.png)
 
 y luego hacemos `checksec` para identificar las protecciones que tiene:
 
