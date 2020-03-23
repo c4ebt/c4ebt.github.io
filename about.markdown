@@ -6,6 +6,7 @@ permalink: /about
 
 #### I am a cybersecurity enthusiast, exploit developer and programmer from Chile.
 I currently go to school and have hacking only as a hobby.
-I often do HackTheBox, currently at the Guru rank and top 3 of Chile, and I'm part of a HTB top 5 team: BirdsArentReal
+
+I do HackTheBox actively, I'm currently Guru and ranked #3 in Chile. I'm also part of one of HTB top 5 teams: BirdsArentReal.
 
 ![](https://c4ebt.github.io/assets/images/htbbadge.png)
