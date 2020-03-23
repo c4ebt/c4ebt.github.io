@@ -14,9 +14,9 @@ You shouldn't restrict yourself to this learning paths, these are just the resou
 
 
 - [Introduction to the Buffer Overflow concept](https://youtu.be/1S0aBV-Waeo)
-- [Great serie explaining multiple types of Buffer Overflows and what happens under the hood](https://youtu.be/iyAyN3GFM7A)
+- [Great series explaining multiple types of Buffer Overflows and what happens under the hood](https://youtu.be/iyAyN3GFM7A)
 - [Good Buffer Overflow practice](https://exploit.education/protostar/)
-- [Introduction and practice to ROP Chains](https://ropemporium.com/)
+- [Introduction and practice of ROP Chains](https://ropemporium.com/)
 
 Overall just keep practicing with CTF challenges and reading writeups about new things :D
 
