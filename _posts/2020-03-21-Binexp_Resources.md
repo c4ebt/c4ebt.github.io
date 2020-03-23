@@ -11,7 +11,7 @@ Most of the writeups I will post will not be entry-level PWNs - and some people 
 [separator]: <> ()
 
 You shouldn't restrict yourself to this learning paths, these are just the resources I've used and simple recommendations.
-
+Algunos videos estan en ingles, pero si les ponen subtitulos en español quedan joya ;)
 
 - [Introduction to the Buffer Overflow concept](https://youtu.be/1S0aBV-Waeo)
 - [Great series explaining multiple types of Buffer Overflows and what happens under the hood](https://youtu.be/iyAyN3GFM7A)
