@@ -1,18 +1,11 @@
 ---
 layout: single
 title: About
-permalink: /about/
+permalink: /about
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# I am a cybersecurity enthusiast, exploit developer and programmer from Chile.
+I currently go to school and have hacking only as a hobby.
+I often do HackTheBox, currently at the Guru rank and top 3 of Chile, and I'm part of a HTB top 5 team: BirdsArentReal
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+![](https://c4ebt.github.io/assets/images/htbbadge.png)
