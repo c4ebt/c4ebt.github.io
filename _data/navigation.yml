@@ -1,4 +1,6 @@
 main:
+  - title: "Home"
+    url: /
   - title: "About"
-    url: /about/index.html
+    url: /about
     
