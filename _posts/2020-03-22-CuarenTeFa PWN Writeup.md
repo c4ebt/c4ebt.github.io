@@ -16,9 +16,10 @@ Al día siguiente del CTF los organizadores hicieron un live resolviendo todos l
 
 ## Apruebo
 Como en la mayoría de desafíos PWN, comenzamos con un archivo zip y una IP y puerto a los que nos podemos conectar. El objetivo en este challenge va a ser explotar un Buffer Overflow en el binario que se nos da para poder conseguir una shell en la maquina remota y así poder leer la flag.
-[Aquí](https://c4ebt.github.io/downloads) tienen un link donde pueden descargar el archivo, y pueden emular la situación del binario corriendo en una maquina remota ustedes mismos haciendo ```nc -nvlp 5555 -e apruebo``` y tendrán el servicio corriendo en ```127.0.0.1:5555```.
+[Aquí](https://c4ebt.github.io/downloads/Apruebo.7z) tienen un link donde pueden descargar el archivo, y pueden emular la situación del binario corriendo en una maquina remota ustedes mismos haciendo ```nc -nvlp 5555 -e apruebo``` y tendrán el servicio corriendo en ```127.0.0.1:5555```.
 
 ![](http://c4ebt.github.io/assets/images/Inicio.png)
+
 Descomprimimos el zip, cambiamos los archivos a modo ejecutable y estamos listos para empezar.
 Vemos que tenemos un binario y una libc, asumimos que es la libc de la maquina remota que nos es entregada para poder conseguir direcciones y demás. Al correr el binario, este espera nuestro input y luego printea `Q4{CTF2020}!`, una distracción por parte del creador del desafío a una flag del estilo Q4{} usadas en un CTF pasado.
 Hacemos el comando `file` con el archivo para ver si se trata de un binario de 32 o 64 bits:
@@ -102,6 +103,7 @@ Esto es implementado en la mayoría de binarios desde hace muchísimo tiempo, ya
 Vemos que las funciones `write` y `read` son simplemente instrucciones `jpm` a otra dirección. Si las analizamos en conjunto, corriendo el comando `V @ sym.imp.read` y subiendo  un poco, nos podemos dar cuenta de que ambas son simplemente entradas de la PLT, o Procedure Linkage Table.
 
 ![](http://c4ebt.github.io/assets/images/radare-plt.png)
+
 Esto significa que las direcciones fijas que tiene el binario de las funciones externas son saltos a otra dirección. Ahora veamos que hay en estas otras direcciones: 
 
 ![](http://c4ebt.github.io/assets/images/radare-got.png)
@@ -191,6 +193,7 @@ Lo que faltaria seria correrlo remotamente, y para eso solamente hay que reempla
 p = remote("x.x.x.x", 5555)
 ```
 Emulando el servicio localmente, como indicado al comienzo del writeup, vemos que conseguimos una shell:
+
 ![](http://c4ebt.github.io/assets/images/remoteshell.png)
 
 El exploit final nos queda así:
