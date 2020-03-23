@@ -30,7 +30,7 @@ y luego hacemos `checksec` para identificar las protecciones que tiene:
 
 ![](http://c4ebt.github.io/assets/images/checksec.png)
 
-Vemos que la única protección que tiene el binario es `NX`, por lo que no podremos ejecutar un simple buffer overflow con shellcode ya que el stack no es ejecutable. Tendremos que optar entonces por una ROP Chain para poder obtener una shell.
+Vemos que la única protección que tiene el binario es NX. No podremos ejecutar un simple buffer overflow con shellcode ya que la proteccion NX hace que el stack no sea ejecutable. Tendremos que optar entonces por una [ROP Chain](https://ropemporium.com/guide.html) para poder obtener una shell.
 Comenzamos reverseando brevemente el binario para hacernos una idea de lo que hace. Para esto vamos a usar radare2:
 
 ![](http://c4ebt.github.io/assets/images/radare-beginning.png)
