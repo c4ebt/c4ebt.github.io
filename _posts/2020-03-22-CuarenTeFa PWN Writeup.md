@@ -1,9 +1,10 @@
 ---
-layout: single
+layout: posts
 title: "CuarenTeFa Apruebo Writeup"
 categories: [writeups]
 tags: [writeup, binexp, rop, ret2libc]
-image: "/assets/images/checksec.png"
+toc: true
+
 ---
 
 Acá dejo mi writeup para el challenge "Apruebo" hecho por [dplastico](https://dplastico.me/) para el CTF CuarenTeFa del 21 de Marzo de 2020 organizado por [L4tinHTB](https://t.me/joinchat/GgG8nxC3jHVwxNFeyQt_OA).
