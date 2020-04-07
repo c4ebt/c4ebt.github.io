@@ -30,9 +30,13 @@ github_username:  c4ebt
 # Build settings
 # theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes@4.19.1"
+minimal-mistakes-skin: c4e
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - protector
+
+
 search: true
 
 author:
@@ -71,6 +75,9 @@ excerpt_separator: "[separator]: <> ()"
 collections:
   downloads:
     output: true
+
+
+paginate: 8
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -90,4 +97,3 @@ collections:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-minimal_mistakes_skin: "dark"
