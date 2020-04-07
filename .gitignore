@@ -4,3 +4,5 @@ _site
 .jekyll-metadata
 vendor
 gulpfile.js
+node_modules
+package-lock.js
