@@ -7,4 +7,4 @@ gulpfile.js
 node_modules
 package-lock.js
 _protected
-assets/images/htb/content/forwardslash/
+assets/images/htb/content/forwardslash
