@@ -3,8 +3,6 @@ layout: posts
 title: "CuarenTeFa Apruebo Writeup"
 categories: [writeups]
 tags: [writeup, binexp, rop, ret2libc]
-toc: true
-
 ---
 
 Acá dejo mi writeup para el challenge "Apruebo" hecho por [dplastico](https://dplastico.me/) para el CTF CuarenTeFa del 21 de Marzo de 2020 organizado por [L4tinHTB](https://t.me/joinchat/GgG8nxC3jHVwxNFeyQt_OA).
@@ -17,49 +15,49 @@ Al día siguiente del CTF los organizadores hicieron un live resolviendo todos l
 
 ## Apruebo
 Como en la mayoría de desafíos PWN, comenzamos con un archivo zip y una IP y puerto a los que nos podemos conectar. El objetivo en este challenge va a ser explotar un Buffer Overflow en el binario que se nos da para poder conseguir una shell en la maquina remota y así poder leer la flag.
-[Aquí](https://c4ebt.github.io/downloads/Apruebo.7z) tienen un link donde pueden descargar el archivo, y pueden emular la situación del binario corriendo en una maquina remota ustedes mismos haciendo ```nc -nvlp 5555 -e apruebo``` y tendrán el servicio corriendo en ```127.0.0.1:5555```.
+[Aquí](/downloads/Apruebo.7z) tienen un link donde pueden descargar el archivo, y pueden emular la situación del binario corriendo en una maquina remota ustedes mismos haciendo ```nc -nvlp 5555 -e apruebo``` y tendrán el servicio corriendo en ```127.0.0.1:5555```.
 
-![](http://c4ebt.github.io/assets/images/Inicio.png)
+![](/assets/images/content/cuarentefa/Inicio.png)
 
 Descomprimimos el zip, cambiamos los archivos a modo ejecutable y estamos listos para empezar.
 Vemos que tenemos un binario y una libc, asumimos que es la libc de la maquina remota que nos es entregada para poder conseguir direcciones y demás. Al correr el binario, este espera nuestro input y luego printea `Q4{CTF2020}!`, una distracción por parte del creador del desafío a una flag del estilo Q4{} usadas en un CTF pasado.
 Hacemos el comando `file` con el archivo para ver si se trata de un binario de 32 o 64 bits:
 
-![](http://c4ebt.github.io/assets/images/file.png)
+![](/assets/images/content/cuarentefa/file.png)
 
 y luego hacemos `checksec` para identificar las protecciones que tiene:
 
-![](http://c4ebt.github.io/assets/images/checksec.png)
+![](/assets/images/content/cuarentefa/checksec.png)
 
 Vemos que la única protección que tiene el binario es NX. No podremos ejecutar un simple buffer overflow con shellcode ya que la proteccion NX hace que el stack no sea ejecutable. Tendremos que optar entonces por una [ROP Chain](https://ropemporium.com/guide.html) para poder obtener una shell.
 Comenzamos reverseando brevemente el binario para hacernos una idea de lo que hace. Para esto vamos a usar radare2:
 
-![](http://c4ebt.github.io/assets/images/radare-beginning.png)
+![](/assets/images/content/cuarentefa/radare-beginning.png)
 
 Vemos 2 funciones que nos podrían interesar por ahora: `main` y `vuln`.
 `Main`:
 
-![](http://c4ebt.github.io/assets/images/radare-main.png)
+![](/assets/images/content/cuarentefa/radare-main.png)
 
 Tomando una mirada mas cercana a `main` nos damos cuenta de que lo único que hace es llamar a `vuln` y luego printear algo al stdout mediante la función `write`, que podemos asumir seguramente es el `Q4{CTF2020}!` que vimos al ejecutar el binario. 
 
 Pasamos a mirar la función `vuln`. Esta nos interesa mas:
 
-![](http://c4ebt.github.io/assets/images/radare-vuln.png)
+![](/assets/images/content/cuarentefa/radare-vuln.png)
 
 Vemos una llamada a la función `read`, que es la función que nos pide el input inicialmente al correr el binario. Es esta función la que vamos a usar para empezar nuestro exploit, es decir, la que vamos a overflowear.
 
 Suficiente reversing, pasamos a ver como crashear el binario y a construir nuestro exploit. Abrimos el binario en gdb (con el plugin peda):
 
-![](http://c4ebt.github.io/assets/images/pattern-create.png)
+![](/assets/images/content/cuarentefa/pattern-create.png)
 
 Creamos una string de 200 caracteres con patron identificable para luego poder saber donde tenemos el offset para sobreescribir el EIP
 
-![](http://c4ebt.github.io/assets/images/pattern-offset.png)
+![](/assets/images/content/cuarentefa/pattern-offset.png)
 
 Podemos comprobar esto en la terminal con python:
 
-![](http://c4ebt.github.io/assets/images/pythoncrash.png)
+![](/assets/images/content/cuarentefa/pythoncrash.png)
 
 Efectivamente crasheamos el programa, usando el comando `dmesg` podemos analizar por que ocurrió el crash:
 ```
@@ -99,18 +97,18 @@ Para llevar a cabo un memory leak de la dirección de libc necesitamos entender 
 Reverseando el binario vimos que las funciones `write` y `read` eran llamadas en determinados puntos de la ejecución. Pero a diferencia de las funciones `main` y `vuln`, que están "dentro" del binario, `write` y `read` son funciones externas importadas desde la libc.
 Esto es implementado en la mayoría de binarios desde hace muchísimo tiempo, ya que ahorra mucho trabajo, espacio y velocidad. Entonces, como se llama a estas funciones si no están dentro del binario? Volvemos un poco a radare2 para analizarlo. 
 
-![](http://c4ebt.github.io/assets/images/radare-functions.png)
+![](/assets/images/content/cuarentefa/radare-functions.png)
 
 Vemos que las funciones `write` y `read` son simplemente instrucciones `jpm` a otra dirección. Si las analizamos en conjunto, corriendo el comando `V @ sym.imp.read` y subiendo  un poco, nos podemos dar cuenta de que ambas son simplemente entradas de la PLT, o Procedure Linkage Table.
 
-![](http://c4ebt.github.io/assets/images/radare-plt.png)
+![](/assets/images/content/cuarentefa/radare-plt.png)
 
 Esto significa que las direcciones fijas que tiene el binario de las funciones externas son saltos a otra dirección. Ahora veamos que hay en estas otras direcciones: 
 
-![](http://c4ebt.github.io/assets/images/radare-got.png)
+![](/assets/images/content/cuarentefa/radare-got.png)
 
 Vemos el inicio de una sección llamada .got, o Global Offset Table. Es en esta sección donde los binarios establecen un link entre sus llamadas a funciones externas y las funciones mismas en libc. En la GOT podemos ver instrucciones `reloc.` con las funciones. `.reloc` significa "relocalización",  y es básicamente lo que ocurre en la GOT. La GOT siempre va a tener una dirección fija dentro de la memoria del binario, pero proporciona un link a las direcciones no fijas de las funciones al cargarse la libc a la memoria cuando se corre el binario. Cada vez que se corre el binario la libc toma una direccion diferente determinada aleatoriamente, como podemos ver en la siguiente imagen:
-![](http://c4ebt.github.io/assets/images/libcrandom.png)
+![](/assets/images/content/cuarentefa/libcrandom.png)
 
 Lo que hace la GOT cuando se corre el binario es almacenar esta dirección aleatoria en un lugar donde el binario pueda accederla, para que asi las funciones externas puedan ser llamadas. Esto plantea una vulnerabilidad ya que si se logra tener acceso a las direcciones de la GOT, se puede llegar a filtrar la dirección aleatoria de libc, dejando de lado entonces la protección ASLR y dando lugar a la ejecución de prácticamente lo que sea desde la libc.
 Lo que buscamos entonces es acceder a estas direcciones en la GOT. Como hacemos esto? Podemos utilizar la función `write`, llamándola desde su dirección en la `PLT`, para printear para nosotros mismos lo que haya en la localización de `read@GOT`, que nos llevaría posteriormente a `read@libc`. Con esta ultima dirección podríamos calcular la dirección base de libc, y desde ahí ejecutar lo que se nos de la gana.
@@ -187,7 +185,7 @@ p.interactive()
 
 Ahora corremos el exploit y... obtenemos una shell!!
 
-![](http://c4ebt.github.io/assets/images/localshell.png)
+![](/assets/images/content/cuarentefa/localshell.png)
 
 Ya tenemos el challenge practicamente resuelto! Solo que lo hicimos localmente y, obviamente, no tenemos ninguna flag aquí :/.
 Lo que faltaria seria correrlo remotamente, y para eso solamente hay que reemplazar las direcciones obtenidas de la libc (libc_read, libc_system, libc_binsh, libc_exit) con las que obtendriamos de la libc que se nos da con el challenge. Despues de eso bastaria modificar el exploit un poco para hacerlo correr en un servicio remoto, de la siguiente manera:
@@ -196,7 +194,7 @@ p = remote("x.x.x.x", 5555)
 ```
 Emulando el servicio localmente, como indicado al comienzo del writeup, vemos que conseguimos una shell:
 
-![](http://c4ebt.github.io/assets/images/remoteshell.png)
+![](/assets/images/content/cuarentefa/remoteshell.png)
 
 El exploit final nos queda así:
 
