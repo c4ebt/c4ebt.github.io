@@ -7,6 +7,5 @@ gulpfile.js
 node_modules
 package-lock.js
 _protected
-assets
 npm-debug.log
 package-lock.json
