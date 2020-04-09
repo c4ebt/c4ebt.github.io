@@ -75,6 +75,8 @@ excerpt_separator: "[separator]: <> ()"
 collections:
   downloads:
     output: true
+  content:
+    output: true
 
 
 paginate: 8
