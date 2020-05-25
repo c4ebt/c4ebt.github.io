@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "HackASat2020 Quals Writeups"
+header:
+  teaser: /assets/images/content/hackasat/azimuth.png
 excerpt: "Hackasat2020 Quals was a ctf realized on the weekend of May 23rd. I wasn't planning on doing it but then a buddy from the CTF team Cntr0llz invited me to participate with them (thanks :D!)."
 ---
 
