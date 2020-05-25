@@ -9,7 +9,7 @@ Hackasat2020 Quals was a ctf realized on the weekend of May 23rd. I wasn't plann
 
 Its challenges were space-themed, which means the tasks we had to perform were related to problems scientists or astronauts may face. Because no one had any experience solving space related problems or anything on that line every challenge involved hours of research, testing and learning. Even though the two challenges I solved were in the "easy tier" in the ctf, they were still medium/hard-ish related to anything I had done in other competitions. Anyway, here are the writeups for **Track the Sat** and **Where's the Sat?**
 
-# Track the Sat
+## Track the Sat
 #### Challenge description: "You're in charge of controlling our hobbiest antenna. The antenna is controlled by two servos, one for azimuth and the other for elevation. Included is an example file from a previous control pattern. Track the satellite requested so we can see what it is broadcasting"
 
 It also gives us a compressed examples file, which we can use to figure out what our answer needs to have. It contains challenge examples, their solutions, a list of Two-Line-Element-Sets (TLEs) and a `README.txt `:
@@ -212,7 +212,7 @@ print(p.recvall())
 With the final script done and the flag obtained, **Track the Sat** is finished.
 
 
-# Where's the Sat?
+## Where's the Sat?
 
 This challenge was rather easy after all the research and skyfield documentation read for the previous challenge.
 Challenge description: **"Let's start with an easy one, I tell you where I'm looking at a satellite, you tell me where to look for it later."**
