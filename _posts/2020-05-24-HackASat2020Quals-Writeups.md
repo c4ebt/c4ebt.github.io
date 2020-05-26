@@ -7,7 +7,7 @@ excerpt: "Hackasat2020 Quals was a ctf that took place on the weekend of May 23r
 ---
 
 #### About Hackasat
-Hackasat2020 Quals was a ctf that took place on the weekend of May 23rd. I wasn't planning on doing it but then a buddy from the CTF team Cntr0llz invited me to participate with them (thanks :D!).
+Hackasat2020 Quals was a ctf that took place on the weekend of May 23rd. I wasn't planning on doing it but then a buddy from the CTF team [Cntr0llz](https://twitter.com/cntr0llz) invited me to participate with them (thanks :D!).
 
 Its challenges were space-themed, which means the tasks we had to perform were related to problems scientists or astronauts may face. Because no one had any experience solving space related problems or anything on that line every challenge involved hours of research, testing and learning. Even though the two challenges I solved were in the "easy tier" in the ctf, they were still medium/hard-ish related to anything I had done in other competitions. Anyway, here are the writeups for **Track the Sat** and **Where's the Sat?**
 
