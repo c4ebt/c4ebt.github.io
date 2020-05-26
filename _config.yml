@@ -70,9 +70,18 @@ defaults:
       layout: single
       author_profile: true
       read_time: false
-      comments: false
+      comments: true
       share: true
       related: true
+
+
+comments:
+  provider: "facebook"
+  facebook:
+    appid: # optional
+    num_posts: # 5 (default)
+    colorscheme: "dark" # "light" (default), "dark"
+
 
 excerpt_separator: "[separator]: <> ()"
 
