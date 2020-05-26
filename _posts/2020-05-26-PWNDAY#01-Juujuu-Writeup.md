@@ -11,7 +11,7 @@ This isn't an entry level writeup so I'll be skipping the explanations for most 
 
 Juujuu is a medium difficulty Jump Oriented Proggraming (JOP)-based binary exploitation challenge. There already are resources out there that explain what JOP is and how it works so I'm going to skip explaining it, however [here](https://www.comp.nus.edu.sg/~liangzk/papers/asiaccs11.pdf) you can download a paper that can be really useful to understand it.
 
-Anyways, lets get started with the technical stuff. You can download the binary [here]().
+Anyways, lets get started with the technical stuff. You can download the binary [here](https://c4ebt.github.io/content/pwnday01/juujuu).
 
 As you could've already noticed, it's a really small binary. We'll see why soon.
 Running checksec on it reveals that the only protection it has is NX, so we'll have to reuse code inside the binary to make our way through the challenge. First thing we think about when we see NX is that we'll need ROP to be able to execute anything, but we'll also see why we won't be able to in this case.
