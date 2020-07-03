@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "PWNDAY#01 Juujuu writeup"
 header:
   teaser: /assets/images/content/pwnday01/teaser.png

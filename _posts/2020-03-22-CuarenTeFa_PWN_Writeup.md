@@ -1,5 +1,6 @@
 ---
 layout: posts
+classes: wide
 title: "CuarenTeFa Apruebo Writeup"
 categories: [writeups]
 tags: [writeup, binexp, rop, ret2libc]

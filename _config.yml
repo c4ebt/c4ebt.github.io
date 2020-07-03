@@ -30,7 +30,7 @@ github_username:  c4ebt
 # Build settings
 # theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes@4.19.1"
-minimal-mistakes-skin: c4e
+minimal_mistakes_skin: "c4e"
 plugins:
   - jekyll-feed
   - jekyll-include-cache

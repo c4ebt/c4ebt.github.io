@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "HTB ropmev2 Writeup"
 header:
   teaser: /assets/images/content/htb/ropmev2/teaser.png

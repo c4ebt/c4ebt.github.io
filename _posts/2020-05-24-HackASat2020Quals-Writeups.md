@@ -1,5 +1,6 @@
 ---
 layout: single
+classes: wide
 title: "HackASat2020 Quals Writeups"
 header:
   teaser: /assets/images/content/hackasat/azimuth.png
