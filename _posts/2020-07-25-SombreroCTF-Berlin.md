@@ -11,7 +11,7 @@ Pueden descargar el binario [aqui](https://c4ebt.github.io/content/sombrero2020/
 
 Para sacar la shell de este binario usé una técnica llamada SROP. Recomiendo investigar un poco sobre ella si quieren entender lo que pasa de mejor manera :D
 
-En un principio lo que mas me complico para resolver el desafío fue la falta de espacio para roppear y la falta de gadgets para pivotear, ya que SROP requiere de mucho espacio en el stack para introducir la SigReturn Frame, que es bastante larga. La falta de gadgets en verdad fue una falta de visión miá o algo, ya que por alguna razón pensé que no podia usar un gadget que era bastante claro.
+En un principio lo que mas me complicó para resolver el desafío fue la falta de espacio para roppear y la falta de gadgets para pivotear, ya que SROP requiere de mucho espacio en el stack para introducir la SigReturn Frame, que es bastante larga. La falta de gadgets en verdad fue una falta de visión mía o algo, ya que por alguna razón pensé que no podia usar un gadget que era bastante claro.
 
 Aquí dejo un dump de las instrucciones del binario, explicando un poco como va la gadget chain para pivotear el stack:
 
