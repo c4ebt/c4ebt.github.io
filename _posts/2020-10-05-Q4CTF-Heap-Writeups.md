@@ -630,4 +630,4 @@ p.interactive()
 
 El exploit es dependiente del ASLR, por lo que al ejecutarlo un par de veces obtenemos la shell. Como mencione antes, podriamos haber eliminado esta dependencia, pero ello involucraria un par de allocaciones mas para un fastbin dup extra al comienzo del exploit y, si hacia eso, la tecnica del `two-gadget` no era posible porque habria 3 pointers mas en el array del stack y no alcanzariamos a setear `[rsp + 0x50]` a null.
 
-Muchas gracias por el CTF a toda la organizacion de Q4, y en especial a dplastico por los pwns que estuvieron increibles! Hasta aqui con los pwns de heap, si estan interesados hice writeups para el resto de los pwns por separado [aqui](link).
+Muchas gracias por el CTF a toda la organizacion de Q4, y en especial a dplastico por los pwns que estuvieron increibles!
