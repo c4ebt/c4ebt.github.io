@@ -10,8 +10,8 @@ The House of Rust is a heap exploitation technique that drops a shell against fu
 If you prefer to read this on Github, check out [this repo](https://github.com/c4ebt/House-of-Rust).
 
 ### Breakdown
-The House of Rust leverages a UAF to perform a number of well-known attacks that when combined result in the bypass of sigle list Safe-Linking without the need for leaks. The weak point it targets to effectively bypass Safe-Linking is the tcache stashing mechanism.
-It utilizes some Heap Feng Shui, one Tcache Stashing Unlink+ attack, one Tcache Stashing Unlink attack, two largebin attacks and targets a stdout FILE stream FSOP attack.
+The House of Rust leverages a UAF to perform a number of well-known attacks that when combined result in the bypass of single list Safe-Linking without the need for leaks. The weak point it targets to effectively bypass Safe-Linking is the tcache stashing mechanism.
+It utilizes some Heap Feng Shui, one Tcache Stashing Unlink+ attack, one Tcache Stashing Unlink attack, two largebin attacks and finally attacks the stdout FILE stream through a FSOP technique.
 
 ### About Safe-Linking
 
