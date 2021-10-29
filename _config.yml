@@ -43,7 +43,7 @@ search: true
 author:
   name     : "c4e"
   avatar   : "/assets/images/perro.jpg"
-  bio      : "17 y/o<br>CTF for AlbytrossCTF<br><br>Discord: c4e#8859"
+  bio      : "18 y/o<br>CTF for Crusaders of Rust<br><br>Discord: c4e#1255"
   location : "Chile"
   links	 :
     - label: "Twitter"
@@ -57,7 +57,7 @@ author:
       url: "https://www.hackthebox.eu/profile/107492"
     - label: "Team"
       icon: "fas fa-users"
-      url: "https://birdsarentrealctf.dev/"
+      url: "https://twitter.com/cor_ctf"
 
 timezone: "America/Santiago"
 
